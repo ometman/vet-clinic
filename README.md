@@ -4,18 +4,14 @@
 <div align="center">
   <img src="./ometman-logo.png" alt="logo" width="140"  height="auto" />
   <br/>
-  <h3><b>Math Magicians Application: by Ometman</b></h3>
-  <h5>"Math magicians" is a website for all fans of mathematics. It is a Single Page App (SPA) that allows users to make simple calculations and read a randomly generated math-related quote. On the frontend, the React framework is employed to display contents from 3 pages: a home page component, calculator component and a math quote component, which consumes an API.
-
-  It was setup with 'create-react-app' and employs components, props, states and Routing.
-  Enjoy it!
-  
+  <h3><b>Vet Clinic Database: by Ometman</b></h3>
+  <h5>"Vet Clinic Database" is a powerful, modern database project for a vetinary data management for animals, owners, clinic employees and visits; and applicable to any data management need. It uses Postgresql, a relational database management system, allowing the recording of data on animals; storing, updating and querying the system to acquire specific information for decision-making. It demonstrates the power of the Structured Query Language, DMS (Database Management Systems) and RDMS (Relational Database Management Systems). Enjoy it!
 </div>
 
 # 📗 Table of Contents
 - [Vet Clinic Database: Ometman](#vet-clinic-database-ometman)
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 Math Magician Project ](#-math-magician-project-)
+- [📖 Vet Clinic ](#-vet-clinic-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -23,7 +19,6 @@
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Usage](#usage)
-    - [Run tests](#run-tests)
     - [Deployment](#deployment)
   - [👥 Author ](#-author-)
     - [Authors](#authors)
@@ -35,21 +30,20 @@
   - [📝 License ](#-license-)
 
 
-# 📖 Math Magician Project <a name="about-project"></a>
+# 📖 Vet Clinic <a name="about-project"></a>
 
 **A Demo Video: Introduction to this Project**
 --coming soon
 
 >The project includes designs for two different screen sizes.
-
- - Mobile: up to 768px wide.
- - Desktop: 768px or wider.
+- Accessible on any screen.
+- Better view on Ipads and Desktop systems
 
 >Project Brief :
- - It is built on a wireframe by Microverse.
- - It is a single page App
- - It displays 3 pages: Home, Calculator and Quotes.
- - Content is dynamic, using React components and routes.
+ - It is built on a real-life data structure by Microverse.
+ - It is a Relational Database system
+ - It uses Postgresql.
+ - It is ACID ( Atomicity, Consitency, Isolation, Durablity) compliant.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -58,38 +52,33 @@
 <details>
   <summary>Client</summary>
   <ul>
-    <li>Pure JSX</>
-    <li>CSS</li>
-    <li>Webpack</li>
-    <li>Wireframe-based design</li>
-    <li>Jest Testing Framework </i>
-    <li>Base public API</li>
+    <li>Pure SQL</>
+    <li>Postgresql</li>
+    <li>Database Management Server funtionalities</li>
+    <li>Real-life structure</li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li>Optionally: Deployable Using GitHub Pages</li>
-    <li>Uses API and Github Servers</li>
+    <li>PostgreSql Server</li>
+    <li>Github Servers</li>
   </ul>
 </details>
 
 <details>
   <ul>
-    <li>Databases</li>
+    <li>PostgreSql Database</li>
   </ul>
-  <li>Currently, utilizes Public API Service entities.
 </details>
 
 ### Key Features <a name="key-features"></a>
 
-- **Conversion of a Wireframe real design using Pure JSX/***
-- **Uses Jest testing and webpack bundled in the 'create-react-app**
-- **A simple home page with caculator image**
-- **Calculator page that allows basic mathematics performance**
-- **Responsive Web Design: Desktop & Mobile**
-- **Quotes generated dynamically from an API**
+- **Conversion of a real structure using Pure SQL***
+- **Employs Tables and Joining of Tables**
+- **Creating, querying, updating and auditing tables**
+- **Schema development**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -104,72 +93,40 @@ To get a local copy up and running, follow these steps.
 ### Prerequisites
 
 In order to run this project you need:
-- Git
-- An IDE (e.g. VS Code)
-- A good modern Browser (eg: Chrome, Edge). 
-
+- Git (for running git related commands only)
+- An IDE (e.g. VS Code) - For viewing and accessing the files only
+- A system with a good OS like Mac Os, Linux or Windows etc
+- PostgreSql (https://www.postgresql.org/download/)
+  
 ### Setup
 
-- Using Git Bash or any integrated terminal of you choice:
-  - Open your code editor (e.g. VS Code).
-  - At the terminal, clone this repository to your desired directory.
-  - Make sure you have node (www.nodejs.org)
-  - Run npm intall at the prompt
-    - Make sure all dependencies( eg: webpack, webpack dev server, css-loader, sass-loader)
+- Depending on your OS, download and install PostgreSql:
+  - You may watch this video (https://www.youtube.com/watch?v=KuQUNHCeKCk)
+- Open your code editor (e.g. VS Code).
+- At the terminal, clone this repository to your desired directory.
+- Make sure the PostgreSql server is running
+  - You may refer to https://www.postgresql.org/docs/current/tutorial-start.html
 
 ### Usage
 To run the project locally, execute the following command:
-- Run npm run server (You should see a success result)
-- Now access the app on port 3000 by entering the following in your browser:
-- http://localhost:3000
-
-### Run tests
-
-To run tests, run the following command:
-
-**************
-Initial Step:
-**************
-- mkdir .github/workflows
-- copy the **linters.yml** file to the directory created above.
-- touch .gitignore if not created already and add **node_modules/** to it.
-- initialize npm to create package.json file by running the command: 
-> npm i -y      
-
-(here i for install & -y for saying yes to all)
-
-**************
-For Stylelint
-**************
-- Run 
-> npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
-- Copy **.stylelintrc.json** to the root directory of your project.
-
-- Run 
-> npx stylelint "**/*.{css,scss}" 
-on the root of your directory of your project.
-- Fix linter errors.
-
-*******
-ESLint
-*******
-- Run 
-> npm install --save-dev eslint@7.x eslint-config-airbnb@18.x eslint-plugin-import@2.x eslint-plugin-jsx-a11y@6.x eslint-plugin-react@7.x eslint-plugin-react-hooks@4.x @babel/eslint-parser@7.x @babel/core@7.x  @babel/plugin-syntax-jsx@7.x @babel/preset-env@7.x  @babel/preset-react@7.x
-- Copy **.eslintrc.json** to the root directory of your project.
-- Copy **.babelrc.json** to the root directory of your project.
-
-- Run 
-> npx eslint .  
-on the root of your directory of your project.
-- Fix linter errors.
-
-- For functionality testing, Run 
-> npm test or npm run test
-> All test must pass without error  
+- Open the SQL shell by running: psql
+  - Then, press enter untill you are asked for password
+  - Enter the password you used during installation
+- At the server prompt, connect to the vet_clinic database
+  - postgres=# \c vet_clinic
+  - You should see the following message:
+    -  You are now connected to database "vet_clinic" as user "postgres".
+    -  vet_clinic=#
+- Voila! Now, run the following:
+  - For Table creation, copy and run the queries in the schema.sql file
+  - For Data insertion and updates, copy and run the queries in the data.sql
+  - Queries, copy and run the queries in the query.sql file  
+    - Make sure your results match the information in the added query images   
 
 ### Deployment
 You can deploy this project using:
-- GitHub Pages from a specific branch (e.g. main). 
+- GitHub Pages from a specific branch (e.g. main).
+  - You may read: https://github.com/topics/database-deployment
 - You can also used any cloud service like gcloud or Azure.
 - A deployed version can be found here:
 [https://... (Coming Soon)
@@ -189,10 +146,9 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **Advance math functionality**
-- **Improved interactive: **
-- **Changing UI - look and feel**
-- **Improved Aesthetics & Design**
+- **Additional and Advance queries**
+- **Full web view and accessiblity**
+- **Adding a help information**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -200,7 +156,7 @@ You can deploy this project using:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/ometman/math-magicians-app/issues).
+Feel free to check the [issues page](https://github.com/ometman/vet-clinic/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
