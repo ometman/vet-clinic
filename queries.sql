@@ -9,66 +9,6 @@ SELECT * FROM animals WHERE neutered = TRUE;
 SELECT * from animals WHERE name <> 'Gabumon';
 SELECT * FROM animals WHERE weight_kg >= 10.40 AND weight_kg <= 17.30;
 
-/*Transactions 1 */
-
-BEGIN;
-UPDATE animals
-SET species = 'unspecified';
-
-SELECT * FROM animals
-
-ROLLBACK;
-
-SELECT * FROM animals
-
-/*Transactions 2 */
-
-BEGIN;
-UPDATE animals
-SET species = 'digimon'
-WHERE name = '%mon';
-
-UPDATE animals
-SET species = 'pokemon'
-WHERE species IS NULL;
-
-SELECT * FROM animals;
-
-COMMIT;
-
-SELECT * FROM animals;
-
-/* Transactions 3 */
-
-BEGIN;
-TRUNCATE animals;
-
-SELECT * FROM animals;
-
-ROLLBACK;
-
-SELECT * FROM animals;
-
-
-/* Transactions 4 */
-
-BEGIN;
-DELETE FROM animals
-WHERE date_of_birth > '2022-01-01';
-
-SAVEPOINT animalsdel;
-
-UPDATE animals
-SET weight_kg = weight_kg * -1;
-
-ROLLBACK TO animalsdel;
-
-UPDATE animals
-SET weight_kg = weight_kg * -1
-WHERE weight_kg < 0; 
-
-COMMIT ;
-
 /* Queries for Questions */
 
 SELECT COUNT(*) AS total_animals

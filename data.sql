@@ -33,3 +33,63 @@ INSERT INTO animals(
 INSERT INTO animals(
 	name, date_of_birth, weight_kg, neutered, escape_attempts)
 	VALUES('Ditto', '2022-05-14', 22.00, true, 4);
+
+/*Transactions 1 */
+
+BEGIN;
+UPDATE animals
+SET species = 'unspecified';
+
+SELECT * FROM animals
+
+ROLLBACK;
+
+SELECT * FROM animals
+
+/*Transactions 2 */
+
+BEGIN;
+UPDATE animals
+SET species = 'digimon'
+WHERE name = '%mon';
+
+UPDATE animals
+SET species = 'pokemon'
+WHERE species IS NULL;
+
+SELECT * FROM animals;
+
+COMMIT;
+
+SELECT * FROM animals;
+
+/* Transactions 3 */
+
+BEGIN;
+TRUNCATE animals;
+
+SELECT * FROM animals;
+
+ROLLBACK;
+
+SELECT * FROM animals;
+
+
+/* Transactions 4 */
+
+BEGIN;
+DELETE FROM animals
+WHERE date_of_birth > '2022-01-01';
+
+SAVEPOINT animalsdel;
+
+UPDATE animals
+SET weight_kg = weight_kg * -1;
+
+ROLLBACK TO animalsdel;
+
+UPDATE animals
+SET weight_kg = weight_kg * -1
+WHERE weight_kg < 0; 
+
+COMMIT ;
