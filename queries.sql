@@ -90,3 +90,4 @@ FROM animals;
 SELECT ROUND(AVG(escape_attempts), 2) AS average_escape
 FROM animals
 WHERE date_of_birth > '1990-01-01' AND date_of_birth < '2000-12-31';
+
