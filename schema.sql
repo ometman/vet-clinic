@@ -53,3 +53,16 @@ CREATE TABLE vets(
     age INT NOT NULL,
     date_of_graduation DATE NOT NULL
 );
+
+/* add specializations table */
+
+CREATE TABLE specializations(
+    vet_id INT,
+    species_id INT
+);
+
+ALTER TABLE specializations
+ADD FOREIGN KEY(vet_id) REFERENCES vets;
+
+ALTER TABLE specializations
+ADD FOREIGN KEY(species_id) REFERENCES species;
