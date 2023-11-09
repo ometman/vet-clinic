@@ -66,3 +66,17 @@ ADD FOREIGN KEY(vet_id) REFERENCES vets;
 
 ALTER TABLE specializations
 ADD FOREIGN KEY(species_id) REFERENCES species;
+
+/* visits table */
+
+CREATE TABLE visits(
+    animal_id INT,
+    vet_id INT,
+    date_of_visit DATE
+);
+
+ALTER TABLE visits
+ADD FOREIGN KEY(animal_id) REFERENCES animals;
+
+ALTER TABLE visits
+ADD FOREIGN KEY(vet_id) REFERENCES vets;
