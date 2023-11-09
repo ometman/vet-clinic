@@ -63,12 +63,6 @@ CREATE TABLE specializations(
     FOREIGN KEY(species_id) REFERENCES species(id);
 );
 
--- ALTER TABLE specializations
--- ADD FOREIGN KEY(vet_id) REFERENCES vets;
-
--- ALTER TABLE specializations
--- ADD FOREIGN KEY(species_id) REFERENCES species;
-
 /* visits table */
 
 CREATE TABLE visits(
@@ -78,9 +72,3 @@ CREATE TABLE visits(
     FOREIGN KEY(animal_id) REFERENCES animals,
     FOREIGN KEY(vet_id) REFERENCES vets
 );
-
--- ALTER TABLE visits
--- ADD FOREIGN KEY(animal_id) REFERENCES animals;
-
--- ALTER TABLE visits
--- ADD FOREIGN KEY(vet_id) REFERENCES vets;
