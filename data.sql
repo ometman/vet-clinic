@@ -111,3 +111,31 @@ INSERT INTO vets(
 INSERT INTO vets(
 	name, age, date_of_graduation)
 	VALUES('Jack Harkness', 38, '2008-06-08');
+
+/* specialization data */
+
+INSERT INTO specializations(
+	vet_id, species_id)
+	VALUES(
+		(SELECT id FROM vets WHERE name = 'William Tatcher'),
+		(SELECT id FROM species WHERE name = 'Pokemon')
+	);
+
+INSERT INTO specializations(
+	vet_id, species_id)
+	VALUES(
+		(SELECT id FROM vets WHERE name = 'Stephanie Mendez'),
+		(SELECT id FROM species WHERE name = 'Digimon')
+	);
+INSERT INTO specializations(
+	vet_id, species_id)
+	VALUES(
+		(SELECT id FROM vets WHERE name = 'Stephanie Mendez'),
+		(SELECT id FROM species WHERE name = 'Pokemon')
+	);
+INSERT INTO specializations(
+	vet_id, species_id)
+	VALUES(
+		(SELECT id FROM vets WHERE name = 'Jack Harkness'),
+		(SELECT id FROM species WHERE name = 'Digimon')
+	);

@@ -58,25 +58,29 @@ CREATE TABLE vets(
 
 CREATE TABLE specializations(
     vet_id INT,
-    species_id INT
+    species_id INT,
+    FOREIGN KEY(vet_id) REFERENCES vets(id),
+    FOREIGN KEY(species_id) REFERENCES species(id);
 );
 
-ALTER TABLE specializations
-ADD FOREIGN KEY(vet_id) REFERENCES vets;
+-- ALTER TABLE specializations
+-- ADD FOREIGN KEY(vet_id) REFERENCES vets;
 
-ALTER TABLE specializations
-ADD FOREIGN KEY(species_id) REFERENCES species;
+-- ALTER TABLE specializations
+-- ADD FOREIGN KEY(species_id) REFERENCES species;
 
 /* visits table */
 
 CREATE TABLE visits(
     animal_id INT,
     vet_id INT,
-    date_of_visit DATE
+    date_of_visit DATE,
+    FOREIGN KEY(animal_id) REFERENCES animals,
+    FOREIGN KEY(vet_id) REFERENCES vets
 );
 
-ALTER TABLE visits
-ADD FOREIGN KEY(animal_id) REFERENCES animals;
+-- ALTER TABLE visits
+-- ADD FOREIGN KEY(animal_id) REFERENCES animals;
 
-ALTER TABLE visits
-ADD FOREIGN KEY(vet_id) REFERENCES vets;
+-- ALTER TABLE visits
+-- ADD FOREIGN KEY(vet_id) REFERENCES vets;
