@@ -136,8 +136,8 @@ LIMIT 1;
 
 SELECT a.name AS william_last
 FROM visits v
-JOIN vets vt ON v.vet_id = vt.id
-JOIN animals a ON v.animal_id = a.id
+LEFT JOIN vets vt ON v.vet_id = vt.id
+LEFT JOIN animals a ON v.animal_id = a.id
 WHERE vt.name = 'William Tatcher'
 ORDER BY v.date_of_visit DESC
 LIMIT 1;
@@ -146,7 +146,7 @@ LIMIT 1;
 
 SELECT COUNT(DISTINCT v.animal_id) AS mendez_no
 FROM visits v
-JOIN vets vt ON v.vet_id = vt.id
+LEFT JOIN vets vt ON v.vet_id = vt.id
 WHERE vt.name = 'Stephanie Mendez';
 
 -- List all vets and their specialties, including vets with no specialties.
@@ -160,8 +160,8 @@ LEFT JOIN species s ON sp.species_id = s.id;
 
 SELECT a.name AS animal_name
 FROM visits v
-JOIN vets vt ON v.vet_id = vt.id
-JOIN animals a ON v.animal_id = a.id
+LEFT JOIN vets vt ON v.vet_id = vt.id
+LEFT JOIN animals a ON v.animal_id = a.id
 WHERE vt.name = 'Stephanie Mendez'
   AND v.date_of_visit BETWEEN '2020-04-01' AND '2020-08-30';
 
@@ -170,7 +170,7 @@ WHERE vt.name = 'Stephanie Mendez'
 
 SELECT a.name AS animal_name, COUNT(v.animal_id) AS visit_count
 FROM visits v
-JOIN animals a ON v.animal_id = a.id
+LEFT JOIN animals a ON v.animal_id = a.id
 GROUP BY a.name
 ORDER BY visit_count DESC
 LIMIT 1;
@@ -180,8 +180,8 @@ LIMIT 1;
 
 SELECT a.name AS first_visit_animal, MIN(v.date_of_visit) AS first_visit_date
 FROM visits v
-JOIN vets vt ON v.vet_id = vt.id
-JOIN animals a ON v.animal_id = a.id
+LEFT JOIN vets vt ON v.vet_id = vt.id
+LEFT JOIN animals a ON v.animal_id = a.id
 WHERE vt.name = 'Maisy Smith'
 GROUP BY a.name
 ORDER BY first_visit_date
@@ -192,8 +192,8 @@ LIMIT 1;
 
 SELECT a.name AS animal_name, vt.name AS vet_name, v.date_of_visit AS last_visit_date
 FROM visits v
-JOIN vets vt ON v.vet_id = vt.id
-JOIN animals a ON v.animal_id = a.id
+LEFT JOIN vets vt ON v.vet_id = vt.id
+LEFT JOIN animals a ON v.animal_id = a.id
 ORDER BY v.date_of_visit DESC
 LIMIT 1;
 
@@ -202,8 +202,8 @@ LIMIT 1;
 
 SELECT COUNT(*) AS non_specialized_visits
 FROM visits v
-JOIN vets vt ON v.vet_id = vt.id
-JOIN animals a ON v.animal_id = a.id
+LEFT JOIN vets vt ON v.vet_id = vt.id
+LEFT JOIN animals a ON v.animal_id = a.id
 LEFT JOIN specializations s ON vt.id = s.vet_id AND a.species_id = s.species_id
 WHERE s.species_id IS NULL;
 
@@ -212,10 +212,10 @@ WHERE s.species_id IS NULL;
 
 SELECT s.name AS required_specialty, COUNT(*) AS visit_count
 FROM visits v
-JOIN vets vt ON v.vet_id = vt.id
-JOIN animals a ON v.animal_id = a.id
-JOIN specializations sp ON vt.id = sp.vet_id
-JOIN species s ON sp.species_id = s.id
+LEFT JOIN vets vt ON v.vet_id = vt.id
+LEFT JOIN animals a ON v.animal_id = a.id
+LEFT JOIN specializations sp ON vt.id = sp.vet_id
+LEFT JOIN species s ON sp.species_id = s.id
 WHERE vt.name = 'Maisy Smith'
 GROUP BY s.name
 ORDER BY visit_count DESC
