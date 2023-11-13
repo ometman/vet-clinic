@@ -72,3 +72,8 @@ CREATE TABLE visits(
     FOREIGN KEY(animal_id) REFERENCES animals,
     FOREIGN KEY(vet_id) REFERENCES vets
 );
+
+/* Performance audit exercise */
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
