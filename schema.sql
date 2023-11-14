@@ -83,3 +83,6 @@ CREATE INDEX idx_animal_id ON visits(animal_id);
 
 -- Create Index idx_vet_id on visits
 CREATE INDEX idx_vet_id ON visits(vet_id)
+
+-- Create Index idx_email on owners
+CREATE INDEX idx_email ON owners(email)
