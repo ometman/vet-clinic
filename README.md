@@ -34,7 +34,7 @@
 
 **ERD Schema Diagram:**
 
-Click to view the structure >> [vetclinic](./vetclicnic.png) .
+Click to view the structure >> [vetclinic](./vetclinic.png) .
 
 >The project includes designs for two different screen sizes.
 - Accessible on any screen.
