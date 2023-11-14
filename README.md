@@ -32,8 +32,9 @@
 
 # 📖 Vet Clinic <a name="about-project"></a>
 
-**A Demo Video: Introduction to this Project**
---coming soon
+**ERD Schema Diagram:**
+
+Click to view the structure >> [vetclinic](./vetclicnic.png) .
 
 >The project includes designs for two different screen sizes.
 - Accessible on any screen.
