@@ -197,3 +197,10 @@ INSERT INTO visits(
 insert into owners(
 	full_name, email)
 	select 'Owner ' || generate_series(1,2500000), 'owner_' || generate_series(1,2500000) || '@mail.com';
+
+/* parition data */
+
+INSERT INTO visits_partitioned (animal_id, vet_id, date_of_visit)
+SELECT animal_id, vet_id, date_of_visit
+FROM visits;
+ 
