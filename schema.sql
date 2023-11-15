@@ -72,3 +72,31 @@ CREATE TABLE visits(
     FOREIGN KEY(animal_id) REFERENCES animals,
     FOREIGN KEY(vet_id) REFERENCES vets
 );
+
+/* Performance audit exercise */
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+-- Create Index idx_animal_id on visits
+CREATE INDEX idx_animal_id ON visits(animal_id);
+
+-- Create Index idx_vet_id on visits
+CREATE INDEX idx_vet_id ON visits(vet_id)
+
+-- Create Index idx_email on owners
+CREATE INDEX idx_email ON owners(email)
+
+/* partitioning */
+
+CREATE TABLE visits_partitioned (
+	animal_id INT REFERENCES animals(id),
+    vet_id INT REFERENCES vets(id),
+    date_of_visit DATE
+) PARTITION BY RANGE (animal_id);
+
+CREATE TABLE visits_part_0 PARTITION OF visits_partitioned FOR VALUES FROM (MINVALUE) TO (1000);
+CREATE TABLE visits_part_1 PARTITION OF visits_partitioned FOR VALUES FROM (1000) TO (2000);
+CREATE TABLE visits_part_2 PARTITION OF visits_partitioned FOR VALUES FROM (2000) TO (3000);
+
+CREATE INDEX idx_v_part_animal_id ON visits_partitioned (animal_id);
